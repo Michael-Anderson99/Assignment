@@ -9,7 +9,17 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+/*
+ The purpose of this class is to:
+ A)-Open a file
+ B)-Read the words of a file into an Array List to (1)find average word length and (2)scan for slang words
+ C)-Add each sentence in a file to a separate Array List to determine average sentence length
+ 
+ Slang is determined by:
+ Shorter average word length
+ Shorter sentence length
+ How many slang terms are in the file
+ */
 public class Readf
 {
 	
@@ -37,22 +47,22 @@ public class Readf
 			String line1="";
 		    try
 			{
-		     // I don't need the scanner in any other method, so I can create it here.
-			 Scanner myScanner = new Scanner(fleExample);
-			 
-			  
-			 while (myScanner.hasNextLine())
-			 {
-			      line1 =line1 + myScanner.nextLine();
-			      
-			 }
-			 String[] split = line1.split(" ");
-			 int length = split.length;
-			 int i;
-			 for(i=0; i<length; i=i+1)
-			 {
-				 String words = split[i];
-				 splitup.add(words); 
+			     // I don't need the scanner in any other method, so I can create it here.
+				 Scanner myScanner = new Scanner(fleExample);
+				 
+				  
+				 while (myScanner.hasNextLine())
+				 {
+				      line1 =line1 + myScanner.nextLine();
+				      
+				 }
+				 String[] split = line1.split(" ");
+				 int length = split.length;
+				 int i;
+				 for(i=0; i<length; i=i+1)
+				 {
+					 String words = split[i];
+					 splitup.add(words); 
 			 }
 			 
 			myScanner.close();
@@ -81,45 +91,42 @@ public class Readf
 		System.out.println(avglength);
 	}
 	
-	
-	
-	
-	
-		public String findSent()
-		{		
-				String line1="";
-			    try
-				{
-				     // I don't need the scanner in any other method, so I can create it here.
-					 Scanner myScanner1 = new Scanner(fleExample);
-					 
-					  
-					 while (myScanner1.hasNextLine())
-					 {
-					      line1 =line1 + myScanner1.nextLine();
-					      
-					 }//while
-					 String[] split1 = line1.split(".");
-					 int length = split1.length;
-					 int i;
-					 
-					 for(i=0; i<length; i=i+1)
-					{
-							 String words = split1[i];
-							 findtheSentences.add(words); 
-					}//for
-					 
-					myScanner1.close();
-				}//try
-				catch (FileNotFoundException e)
-					{
-						System.out.println(e.getMessage());
-					}//catch
+	public String findSent()
+	{		
+		String line1="";
+		try
+		{
+			
+			Scanner myScanner1 = new Scanner(fleExample);
+						 
+						  
+			while (myScanner1.hasNextLine())
+			{
+				line1 =line1 + myScanner1.nextLine();
+						      
+			 }//while
+			String[] split1 = line1.split("\\.");
+			int length = split1.length;
+			int j ;
+						 
+			for(j=0; j<length; j=j+1)
+			{
+				String words = split1[j];
+				findtheSentences.add(words); 
+			}//for
+						 
+			myScanner1.close();
+			
+		}//try
+		catch (FileNotFoundException e)
+		{
+			System.out.println(e.getMessage());
+		}//catch
 			    
 
-			    System.out.println(findtheSentences);
-			    return line1;
-	    }//findsent
+		System.out.println(findtheSentences);
+		return line1;
+	 }//findsent
 
 	
 	

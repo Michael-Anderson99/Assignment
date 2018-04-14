@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-
+//make string for what to add, make string for whats already in the file, append strings and add to file
 public class addSlang 
 {
 	
