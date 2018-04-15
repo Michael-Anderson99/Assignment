@@ -20,6 +20,7 @@ import java.io.IOException;
  Shorter sentence length
  How many slang terms are in the file
  */
+//ALWAYS CLOSE FILE WHEN FINISHED READING IT "SCANNERNAME.CLOSE();"
 public class Readf
 {
 	
@@ -27,6 +28,8 @@ public class Readf
 	// Attributes. 
 	String fileName;
 	File fleExample;
+	int avgWordlength = 0;
+	int avgSenLength = 0;
 	private ArrayList<String> splitup = new ArrayList<>();
 	private ArrayList<String> findtheSentences = new ArrayList<>();
 	
@@ -39,7 +42,7 @@ public class Readf
 	public void openFile()
 	{
 		fleExample = new File(fileName);
-	}
+	}//openFile
 	
 	// read the text file and add the words to an array  list individually
 	public String readLine()
@@ -55,7 +58,7 @@ public class Readf
 				 {
 				      line1 =line1 + myScanner.nextLine();
 				      
-				 }
+				 }//while
 				 String[] split = line1.split(" ");
 				 int length = split.length;
 				 int i;
@@ -63,37 +66,43 @@ public class Readf
 				 {
 					 String words = split[i];
 					 splitup.add(words); 
-			 }
+				 }//for
 			 
-			myScanner.close();
-			}
+			     myScanner.close();
+			}//try
 			catch (FileNotFoundException e)
 			{
 				System.out.println(e.getMessage());
-			}
+			}//catch
 
 		    System.out.println(splitup);
 		    return line1;
 		    
 	} // readLine
 	
+	//find the average word length for the file
 	public void findWordLength()
 	{
 		int i = 0;
-		int avglength = 0;
+		
 		
 		for(i = 0; i < splitup.size(); i++)
 		{
-		  avglength = avglength + splitup.get(i).length();
-		}
+		  avgWordlength = avgWordlength + splitup.get(i).length();
+		}//for
 
-		avglength = avglength / splitup.size();
-		System.out.println(avglength);
-	}
+		avgWordlength = avgWordlength / splitup.size();
+		System.out.println(avgWordlength);
+	}//findWordLength
 	
+	
+	
+	//split the file into sentences to calculate average sentence length in other method
 	public String findSent()
 	{		
 		String line1="";
+		String[] split1;
+		
 		try
 		{
 			
@@ -105,7 +114,7 @@ public class Readf
 				line1 =line1 + myScanner1.nextLine();
 						      
 			 }//while
-			String[] split1 = line1.split("\\.");
+			split1 = line1.split("\\.");
 			int length = split1.length;
 			int j ;
 						 
@@ -114,7 +123,7 @@ public class Readf
 				String words = split1[j];
 				findtheSentences.add(words); 
 			}//for
-						 
+			
 			myScanner1.close();
 			
 		}//try
@@ -128,6 +137,26 @@ public class Readf
 		return line1;
 	 }//findsent
 
+	//find the average sentence length 
+	public int findSentLength()
+	{
+		int i = 0;
+		String words[];
+		int wordNum = 0;
+		for(i=0; i<findtheSentences.size(); i=i+1)
+		{
+		    words = findtheSentences.get(i).split(" ");
+		    wordNum = wordNum + words.length;
+			
+		}//for
+		
+		avgSenLength = wordNum / findtheSentences.size();
+		System.out.println(avgSenLength);
+	
+		return avgSenLength;
+		
+		
+	}//findSentLength()
 	
 	
 
