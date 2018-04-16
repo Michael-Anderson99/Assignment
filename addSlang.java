@@ -11,31 +11,35 @@ import java.io.PrintWriter;
 //ALWAYS CLOSE FILE WHEN FINISHED WITH IT |||||  BUFFERREDWRITERNAME.CLOSE();
 public class addSlang 
 {
+	//File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
+	String addToFile;
 	
-	public  addSlang(String fileName)// the constructor just takes in the file name	public Readf (String fileName)
-	{
-		
-		File file = new File(fileName);
 	
+	public addSlang(String addToFile) 
 	{
-	try
+		this.addToFile = addToFile;
+	}
+
+
+	public void add()
 	{
 		
-		String addToFile = "hello";
-		
-		FileWriter fwrite = new FileWriter(file.getAbsoluteFile(),true);
-		
-        BufferedWriter buff = new BufferedWriter(fwrite);
-        
-        buff.write(addToFile);
-        buff.close();
-		
-	}//try
-	catch(Exception ex) 
-	{
-		System.out.println("exception "+ex.getMessage()+"caught");
-	}//catch
+		try
+		{
+			File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
+			FileWriter fwrite = new FileWriter(file.getAbsoluteFile(),true);
+			
+	        BufferedWriter buff = new BufferedWriter(fwrite);
+	        
+	        buff.write(addToFile);
+	        buff.close();
+			
+		}//try
+		catch(Exception ex) 
+		{
+			System.out.println("exception "+ex.getMessage()+"caught");
+		}//catch
 	
 
-	
-}	}}
+	}
+}

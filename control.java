@@ -15,7 +15,7 @@ public class control
 	    r1.findSent();
 	    r1.findSentLength();
 	    r1.searchForSlang();
-	    addSlang AS1 = new addSlang("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
+	   // addSlang AS1 = new addSlang("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
 	    
 	    
 	    gui g1 = new gui("screen");

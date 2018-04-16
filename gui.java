@@ -1,12 +1,13 @@
 package readfile;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,12 +35,17 @@ public class gui extends JFrame implements ActionListener, MouseListener
 		setLayout(new FlowLayout());
 		
 		button1 = new JButton("File 1");
-		button2 = new JButton("FIle 2");
-		tf1 = new JTextField("Enter Slang to add to the file");
+		button2 = new JButton("add");
+		button2.addActionListener(this);
+		tf1 = new JTextField();
+		tf1.setColumns(40);
+		tf1.setToolTipText("Enter Slang terms to add to the search here");
+		tf1.addActionListener(this);
 		
-		JFileChooser Fc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+		//JFileChooser Fc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 		
-		add(Fc);
+		//add(Fc);
+		add(tf1);
 		add(button1);
 		add(button2);
 		setVisible(true);
@@ -51,7 +57,8 @@ public class gui extends JFrame implements ActionListener, MouseListener
 
 
 
-	public void setButton1(JButton button1) {
+	public void setButton1(JButton button1) 
+	{
 		this.button1 = button1;
 	}
 
@@ -108,7 +115,7 @@ public class gui extends JFrame implements ActionListener, MouseListener
 
 	public void setTF1(JTextField tF1) 
 	{
-		tf1 = tf1;
+	
 	}
 	@Override
 	public void mouseClicked(MouseEvent arg0) 
@@ -143,7 +150,12 @@ public class gui extends JFrame implements ActionListener, MouseListener
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		// TODO Auto-generated method stub
+		if (e.getSource() == button2)
+		{
+			String add = tf1.getText();
+			addSlang called = new addSlang(add);
+			called.add();
+		}
 		
 	}
 
