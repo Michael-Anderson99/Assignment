@@ -1,11 +1,14 @@
 
 package readfile;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-//make string for what to add, make string for whats already in the file, append strings and add to file
+//this class opens a opens a file
+//ALWAYS CLOSE FILE WHEN FINISHED WITH IT |||||  BUFFERREDWRITERNAME.CLOSE();
 public class addSlang 
 {
 	
@@ -18,20 +21,21 @@ public class addSlang
 	try
 	{
 		
-		FileOutputStream fos = new FileOutputStream(file);
-		PrintStream ps = new PrintStream(fos);
-		System.setOut(ps);
-		System.out.println("This goes to out.txt");
-			
+		String addToFile = "hello";
 		
-	}
-		catch(Exception ex) 
-		{
-			System.out.println("exception "+ex.getMessage()+"caught");
-		}
+		FileWriter fwrite = new FileWriter(file.getAbsoluteFile(),true);
+		
+        BufferedWriter buff = new BufferedWriter(fwrite);
+        
+        buff.write(addToFile);
+        buff.close();
+		
+	}//try
+	catch(Exception ex) 
+	{
+		System.out.println("exception "+ex.getMessage()+"caught");
+	}//catch
 	
 
 	
-}	}
-
-}
+}	}}

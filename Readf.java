@@ -32,6 +32,7 @@ public class Readf
 	int avgSenLength = 0;
 	private ArrayList<String> splitup = new ArrayList<>();
 	private ArrayList<String> findtheSentences = new ArrayList<>();
+	private ArrayList<String> searchWord = new ArrayList<>();
 	
 	public  Readf(String fileName)// the constructor just takes in the file name	public Readf (String fileName)
 	{
@@ -154,10 +155,43 @@ public class Readf
 		System.out.println(avgSenLength);
 	
 		return avgSenLength;
-		
-		
+
 	}//findSentLength()
 	
+	
+	//search for a string in the file
+	public void searchForSlang()
+	{
+		String word = "He";
+		try
+		{
+		
+			Scanner scan = new Scanner(fleExample);
+			
+			while(scan.hasNext())
+			{
+				searchWord.add(scan.next());
+				
+			}//while
+			
+			if(searchWord.contains(word))
+			{
+				System.out.println("found it hai");
+			}//if
+			else
+			{
+				System.out.println("didnt find it hai");
+
+			}//else
+			
+		} //try
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}//catch
+		
+		
+	}//searchForSlang
 	
 
     
