@@ -12,14 +12,16 @@ import java.io.IOException;
 /*
  The purpose of this class is to:
  A)-Open a file
- B)-Read the words of a file into an Array List to (1)find average word length and (2)scan for slang words
- C)-Add each sentence in a file to a separate Array List to determine average sentence length
+ B)-Read the words of a file into an Array List to (1)find average word length 
+ 
  
  Slang is determined by:
  Shorter average word length
  Shorter sentence length
- How many slang terms are in the file
+ How many slang terms are in the file and the frequency of detected "bad" words in the file
  */
+//I downloaded the file full of bad words (Slang.txt) off the internet and added to it myself in testing the program
+
 //ALWAYS CLOSE FILE WHEN FINISHED READING IT "SCANNERNAME.CLOSE();"
 public class Readf
 {
@@ -28,10 +30,11 @@ public class Readf
 	// Attributes. 
 	String fileName;
 	File fleExample;
+	
 	int avgWordlength = 0;
-	int avgSenLength = 0;
+	
 	private ArrayList<String> splitup = new ArrayList<>();
-	private ArrayList<String> findtheSentences = new ArrayList<>();
+	
 	private ArrayList<String> searchWord = new ArrayList<>();
 	
 	public  Readf(String fileName)// the constructor just takes in the file name	public Readf (String fileName)
@@ -96,102 +99,7 @@ public class Readf
 		System.out.println(avgWordlength);
 	}//findWordLength
 	
-	
-	
-	//split the file into sentences to calculate average sentence length in other method
-	public String findSent()
-	{		
-		String line1="";
-		String[] split1;
-		
-		try
-		{
-			
-			Scanner myScanner1 = new Scanner(fleExample);
-						 
-						  
-			while (myScanner1.hasNextLine())
-			{
-				line1 =line1 + myScanner1.nextLine();
-						      
-			 }//while
-			split1 = line1.split("\\.");
-			int length = split1.length;
-			int j ;
-						 
-			for(j=0; j<length; j=j+1)
-			{
-				String words = split1[j];
-				findtheSentences.add(words); 
-			}//for
-			
-			myScanner1.close();
-			
-		}//try
-		catch (FileNotFoundException e)
-		{
-			System.out.println(e.getMessage());
-		}//catch
-			    
 
-		System.out.println(findtheSentences);
-		return line1;
-	 }//findsent
-
-	//find the average sentence length 
-	public int findSentLength()
-	{
-		int i = 0;
-		String words[];
-		int wordNum = 0;
-		for(i=0; i<findtheSentences.size(); i=i+1)
-		{
-		    words = findtheSentences.get(i).split(" ");
-		    wordNum = wordNum + words.length;
-			
-		}//for
-		
-		avgSenLength = wordNum / findtheSentences.size();
-		System.out.println(avgSenLength);
-	
-		return avgSenLength;
-
-	}//findSentLength()
-	
-	
-	//search for a string in the file
-	public void searchForSlang()
-	{
-		String word = "He";
-		try
-		{
-		
-			Scanner scan = new Scanner(fleExample);
-			
-			while(scan.hasNext())
-			{
-				searchWord.add(scan.next());
-				
-			}//while
-			
-			if(searchWord.contains(word))
-			{
-				System.out.println("found it hai");
-			}//if
-			else
-			{
-				System.out.println("didnt find it hai");
-
-			}//else
-			
-		} //try
-		catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
-		}//catch
-		
-		
-	}//searchForSlang
 	
 
     

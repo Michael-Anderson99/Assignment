@@ -7,11 +7,15 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-//this class opens a opens a file
+/*this class opens a opens a file,
+ takes in a string from the gui from user input
+ adds it to the file
+ */
+
 //ALWAYS CLOSE FILE WHEN FINISHED WITH IT |||||  BUFFERREDWRITERNAME.CLOSE();
 public class addSlang 
 {
-	//File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
+	
 	String addToFile;
 	
 	
@@ -26,12 +30,12 @@ public class addSlang
 		
 		try
 		{
-			File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Slang.txt");
+			File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Files\\Slang.txt");
 			FileWriter fwrite = new FileWriter(file.getAbsoluteFile(),true);
 			
 	        BufferedWriter buff = new BufferedWriter(fwrite);
 	        
-	        buff.write(addToFile);
+	        buff.write(" " + addToFile);
 	        buff.close();
 			
 		}//try
@@ -42,4 +46,4 @@ public class addSlang
 	
 
 	}
-}
+}//end class
