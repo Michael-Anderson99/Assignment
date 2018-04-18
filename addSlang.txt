@@ -1,3 +1,0 @@
-C:\Users\Michael\Documents\College\Y2 S2\OOP\readfile\src\readfile\addSlang.txt
-This goes to out.txt
-this is extra texthello
