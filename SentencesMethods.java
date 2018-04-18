@@ -80,7 +80,7 @@ public class SentencesMethods
 			
 		avgSenLength = wordNum / findtheSentences.size();
 		//System.out.println(avgSenLength);
-		
+		System.out.println("gobbeldegoook");
 		return avgSenLength;
 
 	}//findSentLength()

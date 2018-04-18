@@ -21,7 +21,7 @@ public class control
 	    s1.findSentLength();
 	    
 	    */
-	    gui g1 = new gui("screen");
+	    gui g1 = new gui("Language Analyser by Michael Anderson");
    
    
     }//close main

@@ -31,6 +31,7 @@ public class Readf
 	String fileName;
 	File fleExample;
 	
+	
 	int avgWordlength = 0;
 	
 	private ArrayList<String> splitup = new ArrayList<>();
@@ -79,13 +80,13 @@ public class Readf
 				System.out.println(e.getMessage());
 			}//catch
 
-		    System.out.println(splitup);
+		    
 		    return line1;
 		    
 	} // readLine
 	
 	//find the average word length for the file
-	public void findWordLength()
+	public int findWordLength()
 	{
 		int i = 0;
 		
@@ -96,13 +97,9 @@ public class Readf
 		}//for
 
 		avgWordlength = avgWordlength / splitup.size();
-		System.out.println(avgWordlength);
-	}//findWordLength
-	
-
-	
-
-    
+		return avgWordlength;
+		
+	}//findWordLength    
 			
 } // end class	  
 

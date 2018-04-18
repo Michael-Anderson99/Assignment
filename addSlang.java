@@ -25,25 +25,22 @@ public class addSlang
 	}
 
 
-	public void add()
+	public void add() 
 	{
-		
-		try
-		{
+
+		try {
 			File file = new File("C:\\Users\\Michael\\Documents\\College\\Y2 S2\\OOP\\readfile\\src\\readfile\\Files\\Slang.txt");
-			FileWriter fwrite = new FileWriter(file.getAbsoluteFile(),true);
-			
-	        BufferedWriter buff = new BufferedWriter(fwrite);
-	        
-	        buff.write(" " + addToFile);
-	        buff.close();
-			
-		}//try
-		catch(Exception ex) 
-		{
-			System.out.println("exception "+ex.getMessage()+"caught");
-		}//catch
-	
+			FileWriter fwrite = new FileWriter(file.getAbsoluteFile(), true);
+
+			BufferedWriter buff = new BufferedWriter(fwrite);
+
+			buff.write(" " + addToFile);
+			buff.close();
+
+		} // try
+		catch (Exception ex) {
+			System.out.println("exception " + ex.getMessage() + "caught");
+		} // catch
 
 	}
 }//end class
